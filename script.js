@@ -88,4 +88,4 @@ function handleButtonClick(event) {
 const buttons = document.querySelector('.buttons');
 buttons.addEventListener('click', handleButtonClick);
 updateDisplay();
-console.log("blah",buttons)
+console.log("blah",buttons);
