@@ -1,11 +1,14 @@
 const display = document.getElementById('display');
+const historyEl = document.getElementById('history');
 let currentValue = '0';
 let storedValue = null;
 let pendingOperator = null;
 let waitingForNext = false;
+let lastExpression = '';
 
 function updateDisplay() {
   display.textContent = currentValue;
+  historyEl.textContent = lastExpression || 'Start tapping numbers';
 }
 
 function inputDigit(digit) {
@@ -41,6 +44,7 @@ function resetCalculator() {
   storedValue = null;
   pendingOperator = null;
   waitingForNext = false;
+  lastExpression = '';
 }
 
 function clearEntry() {
@@ -54,6 +58,23 @@ function toggleSign() {
 
 function percentValue() {
   currentValue = String(parseFloat(currentValue) / 100);
+}
+
+function backspaceValue() {
+  if (currentValue.length > 1) {
+    currentValue = currentValue.slice(0, -1);
+  } else {
+    currentValue = '0';
+  }
+}
+
+function squareValue() {
+  currentValue = String(parseFloat(currentValue) ** 2);
+}
+
+function sqrtValue() {
+  const value = parseFloat(currentValue);
+  currentValue = value < 0 ? 'Error' : String(Math.sqrt(value));
 }
 
 function handleButtonClick(event) {
@@ -72,7 +93,9 @@ function handleButtonClick(event) {
       break;
     case 'equals':
       if (pendingOperator === null) return;
-      currentValue = String(calculate(storedValue, parseFloat(currentValue), pendingOperator));
+      const result = calculate(storedValue, parseFloat(currentValue), pendingOperator);
+      lastExpression = `${storedValue} ${pendingOperator} ${currentValue} = ${result}`;
+      currentValue = String(result);
       pendingOperator = null;
       waitingForNext = true;
       break;
@@ -88,6 +111,15 @@ function handleButtonClick(event) {
     case 'percent':
       percentValue();
       break;
+    case 'backspace':
+      backspaceValue();
+      break;
+    case 'square':
+      squareValue();
+      break;
+    case 'sqrt':
+      sqrtValue();
+      break;
   }
 
   updateDisplay();
@@ -95,4 +127,25 @@ function handleButtonClick(event) {
 
 const buttons = document.querySelector('.buttons');
 buttons.addEventListener('click', handleButtonClick);
+window.addEventListener('keydown', (e) => {
+  if (/^[0-9]$/.test(e.key)) {
+    inputDigit(e.key);
+    updateDisplay();
+  } else if (e.key === '.') {
+    inputDigit('.');
+    updateDisplay();
+  } else if (['+','-','*','/'].includes(e.key)) {
+    handleOperator(e.key);
+    updateDisplay();
+  } else if (e.key === 'Enter' || e.key === '=') {
+    handleButtonClick({ target: { dataset: { action: 'equals' }, textContent: '=' } });
+    updateDisplay();
+  } else if (e.key === 'Escape') {
+    resetCalculator();
+    updateDisplay();
+  } else if (e.key === 'Backspace') {
+    backspaceValue();
+    updateDisplay();
+  }
+});
 updateDisplay();
