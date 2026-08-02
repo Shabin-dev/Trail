@@ -22,8 +22,7 @@ body {
   place-items: center;
   padding: 24px;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.2), transparent 30%),
-    linear-gradient(135deg, #020617 0%, #0f172a 45%, #111827 100%);
+  background: linear-gradient(135deg, #ff4d4d 0%, #cc0000 100%);
   color: var(--text);
 }
 
