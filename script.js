@@ -1,5 +1,8 @@
 const display = document.getElementById('display');
 const historyEl = document.getElementById('history');
+const loginForm = document.getElementById('loginForm');
+const loginCard = document.getElementById('loginCard');
+const calculatorShell = document.getElementById('calculatorShell');
 let currentValue = '0';
 let storedValue = null;
 let pendingOperator = null;
@@ -124,6 +127,16 @@ function handleButtonClick(event) {
 
   updateDisplay();
 }
+
+loginForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  loginCard.style.opacity = '0';
+  loginCard.style.transform = 'translateY(-12px)';
+  setTimeout(() => {
+    loginCard.hidden = true;
+    calculatorShell.hidden = false;
+  }, 250);
+});
 
 const buttons = document.querySelector('.buttons');
 buttons.addEventListener('click', handleButtonClick);

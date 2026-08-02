@@ -28,8 +28,95 @@ body {
   overflow: hidden;
 }
 
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at 20% 20%, rgba(255,255,255,0.16), transparent 24%);
+  pointer-events: none;
+}
+
+.app-shell {
+  width: min(430px, 100%);
+  display: grid;
+  gap: 18px;
+}
+
+.login-card, .calculator-card {
+  background: linear-gradient(145deg, rgba(15, 23, 42, 0.95), rgba(30, 41, 59, 0.9));
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 28px;
+  padding: 22px;
+  box-shadow: 0 30px 70px rgba(2, 6, 23, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  animation: floatIn 0.6s ease;
+  backdrop-filter: blur(16px);
+}
+
+.login-card {
+  text-align: center;
+}
+
+.login-badge {
+  display: inline-block;
+  margin-bottom: 10px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  color: #f8fafc;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.login-card h2 {
+  margin: 0 0 8px;
+  font-size: 1.4rem;
+}
+
+.login-card p {
+  margin: 0 0 14px;
+  color: #cbd5e1;
+}
+
+.login-card form {
+  display: grid;
+  gap: 12px;
+}
+
+.login-card input {
+  padding: 12px 14px;
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 12px;
+  background: rgba(255,255,255,0.08);
+  color: white;
+  outline: none;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.login-card input:focus {
+  border-color: rgba(125, 211, 252, 0.8);
+  transform: translateY(-1px);
+}
+
+.login-card button {
+  margin-top: 2px;
+  background: linear-gradient(135deg, #ef4444, #2563eb);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 12px;
+  font-weight: 700;
+}
+
+.login-hint {
+  margin-top: 12px;
+  font-size: 0.8rem;
+  color: #94a3b8;
+}
+
 .calculator-shell {
-  width: min(390px, 100%);
+  width: 100%;
 }
 
 .calculator-card {

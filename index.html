@@ -7,50 +7,64 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="calculator-shell">
-    <div class="calculator-card">
-      <div class="calculator-header">
-        <div>
-          <p class="eyebrow">Smart Calculator</p>
-          <h1>Quick Math</h1>
+  <div class="app-shell">
+    <div class="login-card" id="loginCard">
+      <div class="login-badge">Secure Access</div>
+      <h2>Login to your calculator</h2>
+      <p>Enter your demo credentials to continue.</p>
+      <form id="loginForm">
+        <input type="text" id="username" placeholder="Username" required />
+        <input type="password" id="password" placeholder="Password" required />
+        <button type="submit">Enter Calculator</button>
+      </form>
+      <div class="login-hint">Demo: use any username and password</div>
+    </div>
+
+    <div class="calculator-shell" id="calculatorShell" hidden>
+      <div class="calculator-card">
+        <div class="calculator-header">
+          <div>
+            <p class="eyebrow">Smart Calculator</p>
+            <h1>Quick Math</h1>
+          </div>
+          <div class="status-pill">Live</div>
         </div>
-        <div class="status-pill">Live</div>
-      </div>
 
-      <div class="display-panel">
-        <div class="display-label">Result</div>
-        <div class="display" id="display">0</div>
-        <div class="mini-history" id="history">Start tapping numbers</div>
-      </div>
+        <div class="display-panel">
+          <div class="display-label">Result</div>
+          <div class="display" id="display">0</div>
+          <div class="mini-history" id="history">Start tapping numbers</div>
+        </div>
 
-      <div class="buttons">
-        <button class="action" data-action="clear">C</button>
-        <button class="action" data-action="clear-entry">CE</button>
-        <button class="action" data-action="toggle-sign">+/-</button>
-        <button class="operator" data-action="operator">/</button>
-        <button class="action" data-action="square">x²</button>
-        <button class="action" data-action="sqrt">√</button>
-        <button class="action" data-action="backspace">⌫</button>
-        <button class="operator" data-action="operator">*</button>
+        <div class="buttons">
+          <button class="action" data-action="clear">C</button>
+          <button class="action" data-action="clear-entry">CE</button>
+          <button class="action" data-action="toggle-sign">+/-</button>
+          <button class="operator" data-action="operator">/</button>
+          <button class="action" data-action="square">x²</button>
+          <button class="action" data-action="sqrt">√</button>
+          <button class="action" data-action="backspace">⌫</button>
+          <button class="operator" data-action="operator">*</button>
 
-        <button data-action="digit">7</button>
-        <button data-action="digit">8</button>
-        <button data-action="digit">9</button>
-        <button class="operator" data-action="operator">*</button>
+          <button data-action="digit">7</button>
+          <button data-action="digit">8</button>
+          <button data-action="digit">9</button>
+          <button class="operator" data-action="operator">*</button>
 
-        <button data-action="digit">4</button>
-        <button data-action="digit">5</button>
-        <button data-action="digit">6</button>
-        <button class="operator" data-action="operator">-</button>
+          <button data-action="digit">4</button>
+          <button data-action="digit">5</button>
+          <button data-action="digit">6</button>
+          <button class="operator" data-action="operator">-</button>
 
-        <button data-action="digit">1</button>
-        <button data-action="digit">2</button>
-        <button data-action="digit">3</button>
-        <button class="operator" data-action="operator">+</button>
+          <button data-action="digit">1</button>
+          <button data-action="digit">2</button>
+          <button data-action="digit">3</button>
+          <button class="operator" data-action="operator">+</button>
 
-        <button class="wide" data-action="digit">0</button>
-        <button data-action="digit">.</button>
-        <button class="equals" data-action="equals">=</button>
+          <button class="wide" data-action="digit">0</button>
+          <button data-action="digit">.</button>
+          <button class="equals" data-action="equals">=</button>
+        </div>
       </div>
     </div>
   </div>
