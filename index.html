@@ -1,66 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Tally — Desktop Adding Machine</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Modern Calculator</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <div class="calculator-shell">
+    <div class="calculator-card">
+      <div class="calculator-header">
+        <div>
+          <p class="eyebrow">Smart Calculator</p>
+          <h1>Quick Math</h1>
+        </div>
+        <div class="status-pill">Live</div>
+      </div>
 
-  <div class="machine">
-    <div class="brand-row">
-      <div class="brand">Tally <span>· Mk II</span></div>
-      <div class="mem-indicator" id="memIndicator">M</div>
-    </div>
-
-    <div class="row-mem">
-      <button data-action="mc" title="Memory Clear">MC</button>
-      <button data-action="mr" title="Memory Recall">MR</button>
-      <button data-action="mminus" title="Memory Subtract">M−</button>
-      <button data-action="mplus" title="Memory Add">M+</button>
-    </div>
-
-    <div class="tape-wrap">
-      <div class="tape">
-        <div class="history" id="history">&nbsp;</div>
+      <div class="display-panel">
+        <div class="display-label">Result</div>
         <div class="display" id="display">0</div>
       </div>
+
+      <div class="buttons">
+        <button class="action" data-action="clear">C</button>
+        <button class="action" data-action="clear-entry">CE</button>
+        <button class="action" data-action="toggle-sign">+/-</button>
+        <button class="operator" data-action="operator">/</button>
+
+        <button data-action="digit">7</button>
+        <button data-action="digit">8</button>
+        <button data-action="digit">9</button>
+        <button class="operator" data-action="operator">*</button>
+
+        <button data-action="digit">4</button>
+        <button data-action="digit">5</button>
+        <button data-action="digit">6</button>
+        <button class="operator" data-action="operator">-</button>
+
+        <button data-action="digit">1</button>
+        <button data-action="digit">2</button>
+        <button data-action="digit">3</button>
+        <button class="operator" data-action="operator">+</button>
+
+        <button class="wide" data-action="digit">0</button>
+        <button data-action="digit">.</button>
+        <button class="equals" data-action="equals">=</button>
+      </div>
     </div>
-
-    <div class="buttons">
-      <button class="fn" data-action="clear">AC</button>
-      <button class="fn" data-action="backspace" title="Backspace">⌫</button>
-      <button class="fn" data-action="percent">%</button>
-      <button class="operator" data-action="operator" data-op="/">÷</button>
-
-      <button data-action="digit">7</button>
-      <button data-action="digit">8</button>
-      <button data-action="digit">9</button>
-      <button class="operator" data-action="operator" data-op="*">×</button>
-
-      <button data-action="digit">4</button>
-      <button data-action="digit">5</button>
-      <button data-action="digit">6</button>
-      <button class="operator" data-action="operator" data-op="-">−</button>
-
-      <button data-action="digit">1</button>
-      <button data-action="digit">2</button>
-      <button data-action="digit">3</button>
-      <button class="operator" data-action="operator" data-op="+">+</button>
-
-      <button class="fn small-label" data-action="toggle-sign">+/−</button>
-      <button data-action="digit">0</button>
-      <button data-action="digit">.</button>
-      <button class="equals" data-action="equals">=</button>
-
-      <button class="fn wide small-label" data-action="sqrt">√x</button>
-      <button class="fn wide small-label" data-action="square">x²</button>
-    </div>
-
-    <div class="footer-note">Keyboard enabled · Esc clears</div>
   </div>
 
   <script src="script.js"></script>
